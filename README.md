@@ -103,3 +103,5 @@ Follow these steps to configure and run the project:
 - **Accounts**
 - **Auth with JWT**
 - **Not found handler**
+- **Linters and formmaters**
+- **Commits format validator**
