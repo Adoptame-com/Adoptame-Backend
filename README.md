@@ -96,3 +96,15 @@ Follow these steps to configure and run the project:
 4. **Restart Visual Studio Code:**
 
     To ensure that the configurations are applied correctly, restart Visual Studio Code.
+
+### Features
+
+- **Statics**
+- **Exception general handler**
+- **Logger**
+- **General endpoints decorator handler**
+- **Dto's validator**
+- **Mongo config**
+- **Accounts**
+- **Auth with JWT**
+- **Not found handler**
