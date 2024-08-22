@@ -1,6 +1,6 @@
-# nest-general-architecture
+# Adoptame
 
-General architecture for Nest.js with TypeScript implementing 3 Layered Architecture. Node.js.
+A simple and user-friendly app that connects people with animals in need of adoption, helping you find and adopt your perfect pet.
 
 ## General structure
 
@@ -12,14 +12,15 @@ root
 │ │ ├── decorators
 │ │ ├── dtos
 │ │ ├── exceptions
+│ │ ├── functions
 │ │ ├── filters
 │ │ ├── guards
 │ │ ├── interceptors
 │ │ ├── middlewares
 │ │ └── pipes
 │ │
-│ ├── config
-│ │ └── (config files)
+│ ├── statics
+│ │ └── (codes, constants, docs, messages, paths, etc...)
 │ │
 │ ├── modules
 │ │ ├── module1
@@ -38,15 +39,9 @@ root
 │ │ │
 │ │ └── (other modules)
 │ │
-│ ├── shared
-│ │ ├── (shared modules, services, etc.)
-│ │
-│ ├── app.controller.spec.ts
-│ ├── app.controller.ts
+│ ├── services
 │ ├── app.module.ts
-│ ├── app.service.ts
-│ ├── main.ts
-│ └── (other src-level files)
+│ └── main.ts
 │
 ├── test
 │ ├── (unit and integration tests)
