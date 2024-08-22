@@ -60,40 +60,39 @@ root
 **Services:** Manage bussiness logic.\
 **DTO's:** Data objects to transfer and validate data on application.
 
-### Commands to create 3 layered components
+### Configuración del Proyecto
 
-**Create module**
+Sigue estos pasos para configurar y ejecutar el proyecto:
 
-```
-nest generate module modules/<moduleName>
-```
+1. **Instalar dependencias:**
 
-**Create controller**
+    Ejecuta el siguiente comando para instalar todas las dependencias del proyecto:
 
-```
-nest generate controller modules/<moduleName>/controllers/<controllerName>
-```
+    ```bash
+    npm install
+    ```
 
-**Create service**
+2. **Instalar extensiones de VS Code:**
 
-```
-nest generate service modules/<moduleName>/services/<serviceName>
-```
+    Puedes instalar las extensiones necesarias de VS Code ejecutando los siguientes comandos:
 
-**Create entities**
+    ```bash
+    code --install-extension dbaeumer.vscode-eslint
+    code --install-extension rvest.vs-code-prettier-eslint
+    ```
 
-```
-nest generate class modules/<moduleName>/entities/<entityName>
-```
+    Alternativamente, puedes instalar estas extensiones manualmente desde el marketplace de VS Code.
 
-**Create DTO's**
+3. **Crear archivo de configuración:**
 
-```
-nest generate class modules/<moduleName>/dto/<dtoName>
-```
+    Crea un archivo llamado `.env.development` en la raíz del proyecto con el siguiente contenido:
 
-**Create interceptors**
+    ```bash
+    PORT=
+    MONGO_URI=
+    JWT_SECRET_KEY=
+    ```
 
-```
-nest generate interceptor common/interceptors/<interceptorName>
-```
+4. **Reiniciar Visual Studio Code:**
+
+    Para asegurarte de que las configuraciones se apliquen correctamente, reinicia Visual Studio Code.
