@@ -60,32 +60,32 @@ root
 **Services:** Manage bussiness logic.\
 **DTO's:** Data objects to transfer and validate data on application.
 
-### Configuración del Proyecto
+### Project Setup
 
-Sigue estos pasos para configurar y ejecutar el proyecto:
+Follow these steps to configure and run the project:
 
-1. **Instalar dependencias:**
+1. **Install dependencies:**
 
-    Ejecuta el siguiente comando para instalar todas las dependencias del proyecto:
+    Run the following command to install all project dependencies:
 
     ```bash
     npm install
     ```
 
-2. **Instalar extensiones de VS Code:**
+2. **Install VS Code extensions:**
 
-    Puedes instalar las extensiones necesarias de VS Code ejecutando los siguientes comandos:
+    You can install the required VS Code extensions by running the following commands:
 
     ```bash
     code --install-extension dbaeumer.vscode-eslint
     code --install-extension rvest.vs-code-prettier-eslint
     ```
 
-    Alternativamente, puedes instalar estas extensiones manualmente desde el marketplace de VS Code.
+    Alternatively, you can install these extensions manually from the VS Code marketplace.
 
-3. **Crear archivo de configuración:**
+3. **Create configuration file:**
 
-    Crea un archivo llamado `.env.development` en la raíz del proyecto con el siguiente contenido:
+    Create a file named `.env.development` in the root of the project with the following content:
 
     ```bash
     PORT=
@@ -93,6 +93,6 @@ Sigue estos pasos para configurar y ejecutar el proyecto:
     JWT_SECRET_KEY=
     ```
 
-4. **Reiniciar Visual Studio Code:**
+4. **Restart Visual Studio Code:**
 
-    Para asegurarte de que las configuraciones se apliquen correctamente, reinicia Visual Studio Code.
+    To ensure that the configurations are applied correctly, restart Visual Studio Code.
