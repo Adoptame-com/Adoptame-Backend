@@ -2,7 +2,7 @@
 
 A simple and user-friendly app that connects people with animals in need of adoption, helping you find and adopt your perfect pet.
 
-### Project Setup
+# Project Setup
 
 Follow these steps to configure and run the project:
 
@@ -39,7 +39,7 @@ Follow these steps to configure and run the project:
 
     To ensure that the configurations are applied correctly, restart Visual Studio Code.
 
-## General structure
+# General structure
 
 ```
 root
@@ -86,13 +86,13 @@ root
 ├── (other root-level files)
 ```
 
-### Definitions
+# Definitions
 **Modules:** Agrupate related components.\
 **Controllers:** Manage requests and responses.\
 **Services:** Manage bussiness logic.\
 **DTO's:** Data objects to transfer and validate data on application.
 
-### Git Branching Strategy
+# Git Branching Strategy
 
 #### `main`
 Contains stable, production-ready code. All final releases are made from this branch.
@@ -109,7 +109,7 @@ Dedicated branch for urgent bug fixes. Based on `main`, it’s used to resolve c
 #### `feature/issue-xxxx`
 Individual branches for developing new features or resolving specific issues, derived from `develop`. Named according to the related issue number (`issue-xxxx`).
 
-### Conventional Commits
+# Conventional Commits
 Use this format for commit messages:
 #### **Type**
 - **`feat`**: New feature
@@ -163,7 +163,7 @@ Use this format for commit messages:
 - **Merge**: Once approved, merge the PR into `develop`.
 - **Delete Branch**: Clean up by deleting the feature branch.
 
-### Current Features
+# Current Features
 
 - **Statics**
 - **Exception general handler**
