@@ -1,9 +1,11 @@
 #!/bin/sh
-if ! head -1 "$1" | grep -qE "^(feat|fix|chore|docs|test|style|refactor|perf|build|ci|revert)(\(.+?\))?: .{1,}$"; then
-    echo "Aborting commit. Your commit message is invalid." >&2
+if ! head -1 "$1" | grep -qE "^(feat|fix|chore|docs|test|style|refactor|perf|build|ci|revert)(\(.+?\))?: .+"; then
+    echo "Aborting commit. Your commit message must start with a valid type and follow the conventional format." >&2
     exit 1
 fi
-if ! head -1 "$1" | grep -qE "^.{1,88}$"; then
-    echo "Aborting commit. Your commit message is too long." >&2
+
+# Validar que el mensaje no sea más largo de 88 caracteres
+if [ $(head -1 "$1" | wc -c) -gt 89 ]; then
+    echo "Aborting commit. Your commit message is too long. It should not exceed 88 characters." >&2
     exit 1
 fi
