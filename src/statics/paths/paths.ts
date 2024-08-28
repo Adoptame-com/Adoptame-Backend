@@ -122,7 +122,7 @@ paths.authLogin = {
 paths.authSignup = {
   path: `${paths.auth.path}/signup`,
   method: RequestMethod.POST,
-  public: false,
+  public: true,
 };
 
 export { paths };

@@ -20,7 +20,7 @@ export class AccountIdDto {
 
   @IsString()
   @IsNotEmpty()
-  readonly username: string;
+  readonly name: string;
 
   @IsEmail()
   @IsNotEmpty()
