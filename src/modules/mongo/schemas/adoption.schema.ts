@@ -4,7 +4,7 @@ import { Account } from './account.schema';
 import { City } from './city.schema';
 
 @Schema({ timestamps: true })
-export class AdoptionUser extends Document {
+export class Adoption extends Document {
   @Prop({
     type: Types.ObjectId,
     ref: Account.name,
@@ -56,4 +56,4 @@ export class AdoptionUser extends Document {
   updatedAt: Date;
 }
 
-export const AccountSchema = SchemaFactory.createForClass(AdoptionUser);
+export const AdoptionSchema = SchemaFactory.createForClass(Adoption);

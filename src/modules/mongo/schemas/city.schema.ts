@@ -13,4 +13,4 @@ export class City extends Document {
   updatedAt: Date;
 }
 
-export const AccountSchema = SchemaFactory.createForClass(City);
+export const CitySchema = SchemaFactory.createForClass(City);

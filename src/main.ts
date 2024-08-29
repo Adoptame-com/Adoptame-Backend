@@ -7,6 +7,7 @@ import { LoggerService } from '@src/modules/logger/logger.service';
 import { CustomConfigService } from '@src/modules/custom-config/custom-config.service';
 import { GlobalGuard } from './modules/api/modules/auth/services/global-guard';
 import { JwtService } from '@nestjs/jwt';
+import { runScript } from '@src/common/functions/run-script';
 
 async function bootstrap() {
   let loggerService: LoggerService;
@@ -27,6 +28,9 @@ async function bootstrap() {
     app.useGlobalPipes(app.get(DTOsService).validationPipe()); // Only allow valid DTO's on input class data
     app.useGlobalGuards(new GlobalGuard(app.get(JwtService))); // Apply global guard
     new SwaggerService(app).setupSwagger(); // Configurate Swagger Doc
+
+    // Run script
+    await runScript(app);
 
     // Run server
     loggerService.info(`Running server...`, 'SYSTEM', 'INIT');

@@ -42,4 +42,4 @@ export class AdoptionUser extends Document {
   updatedAt: Date;
 }
 
-export const AccountSchema = SchemaFactory.createForClass(AdoptionUser);
+export const AdoptionUserSchema = SchemaFactory.createForClass(AdoptionUser);

@@ -13,4 +13,4 @@ export class HouseType extends Document {
   updatedAt: Date;
 }
 
-export const AccountSchema = SchemaFactory.createForClass(HouseType);
+export const HouseTypeSchema = SchemaFactory.createForClass(HouseType);
