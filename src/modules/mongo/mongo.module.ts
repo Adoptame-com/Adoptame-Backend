@@ -6,8 +6,21 @@ import { CustomConfigModule } from '@src/modules/custom-config/custom-config.mod
 import { CustomConfigService } from '@src/modules/custom-config/custom-config.service';
 import { LoggerService } from '@src/modules/logger/logger.service';
 import { LoggerModule } from '@src/modules/logger/logger.module';
+import { City, CitySchema } from './schemas/city.schema';
+import { HouseType, HouseTypeSchema } from './schemas/house-type.schema';
+import { Adoption, AdoptionSchema } from './schemas/adoption.schema';
+import {
+  AdoptionUser,
+  AdoptionUserSchema,
+} from './schemas/adoption-user.schema';
 
-const models = [{ name: Account.name, schema: AccountSchema }];
+const models = [
+  { name: City.name, schema: CitySchema },
+  { name: HouseType.name, schema: HouseTypeSchema },
+  { name: Account.name, schema: AccountSchema },
+  { name: Adoption.name, schema: AdoptionSchema },
+  { name: AdoptionUser.name, schema: AdoptionUserSchema },
+];
 
 @Global()
 @Module({
@@ -39,6 +52,6 @@ const models = [{ name: Account.name, schema: AccountSchema }];
     MongooseModule.forFeature(models),
   ],
   providers: [AccountService],
-  exports: [AccountService],
+  exports: [MongooseModule, AccountService],
 })
 export class MongoModule {}
