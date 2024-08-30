@@ -163,6 +163,13 @@ Use this format for commit messages:
 - **Merge**: Once approved, merge the PR into `develop`.
 - **Delete Branch**: Clean up by deleting the feature branch.
 
+# Commands
+
+##### **Reset sample database:**
+  ```bash
+  npm run db:reset
+  ```
+
 # Current Features
 
 - **Statics**
