@@ -4,10 +4,6 @@ export const messages = {
     hello:
       'Hello! You’re looking at a template for a NestJS 3-layer architecture, created by @cerciber.',
   },
-  test: {
-    success: 'Test was successfull!',
-    error: 'Oops! There was an error with the test response.',
-  },
   default: {
     noFound: 'Oops! the path you’re looking for was not found.',
     unhandledError: 'Oops! An unexpected error occurred.',
