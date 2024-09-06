@@ -8,9 +8,16 @@ import { CustomConfigModule } from '@src/modules/custom-config/custom-config.mod
 import { LoggerModule } from '@src/modules/logger/logger.module';
 import { ApiModule } from '@src/modules/api/api.module';
 import { DefaultErrorFilter } from './common/exceptions/default-error-filter';
+import { MongoModule } from '@src/modules/mongo/mongo.module';
 
 @Module({
-  imports: [LoggerModule, CustomConfigModule, ApiModule, NotFoundModule],
+  imports: [
+    LoggerModule,
+    CustomConfigModule,
+    MongoModule,
+    ApiModule,
+    NotFoundModule,
+  ],
   providers: [
     ErrorService,
     DTOsService,
