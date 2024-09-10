@@ -10,4 +10,4 @@ COPY --from=build /app/dist /app/dist
 COPY --from=build /app/package*.json ./
 RUN npm install
 EXPOSE 3000
-CMD ["node", "dist/main"]
+CMD ["npm", "run", "start:staging"]
