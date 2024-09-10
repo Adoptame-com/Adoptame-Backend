@@ -20,6 +20,13 @@ export default async function setSampleData(app: INestApplicationContext) {
   );
   const adoptionModel = app.get<Model<Adoption>>(getModelToken(Adoption.name));
 
+  // Drop all indexes in the collections
+  await accountModel.collection.dropIndexes();
+  await cityModel.collection.dropIndexes();
+  await houseTypeModel.collection.dropIndexes();
+  await adoptionUserModel.collection.dropIndexes();
+  await adoptionModel.collection.dropIndexes();
+
   // Delete existing data
   await accountModel.deleteMany({});
   await cityModel.deleteMany({});
@@ -32,7 +39,7 @@ export default async function setSampleData(app: INestApplicationContext) {
   for (let i = 1; i <= 10; i++) {
     accounts.push(
       new accountModel({
-        username: `usuario_${i}`,
+        name: `usuario_${i}`,
         email: `usuario_${i}@ejemplo.com`,
         password: bcrypt.hashSync(
           'contraseña123',
