@@ -26,7 +26,7 @@ export class AccountService {
     const accounts = await this.accountModel.find().exec();
     return accounts.map((account: Account) => ({
       id: account._id.toString(),
-      username: account.username,
+      name: account.name,
       email: account.email,
     }));
   }
@@ -50,7 +50,7 @@ export class AccountService {
     }
     return {
       id: account._id.toString(),
-      username: account.username,
+      name: account.name,
       email: account.email,
     };
   }
@@ -74,8 +74,8 @@ export class AccountService {
     }
     return {
       id: account._id.toString(),
-      username: account.username,
       email: account.email,
+      name: account.name,
       password: account.password,
     };
   }
@@ -93,7 +93,7 @@ export class AccountService {
       const createdAccount = await account.save();
       return {
         id: createdAccount._id.toString(),
-        username: createdAccount.username,
+        name: createdAccount.name,
         email: createdAccount.email,
       };
     } catch (error) {
@@ -134,7 +134,7 @@ export class AccountService {
         .exec();
       return updatedAccounts.map((account: Account) => ({
         id: account._id.toString(),
-        username: account.username,
+        name: account.name,
         email: account.email,
       }));
     } catch (error) {
@@ -167,7 +167,7 @@ export class AccountService {
     await this.accountModel.deleteMany(adaptedPartialAccountDto).exec();
     return accountsToDelete.map((account: Account) => ({
       id: account._id.toString(),
-      username: account.username,
+      name: account.name,
       email: account.email,
     }));
   }

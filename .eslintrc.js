@@ -9,7 +9,7 @@ module.exports = {
   extends: [
     'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',
-    'plugin:json/recommended'
+    'plugin:json/recommended',
   ],
   root: true,
   env: {
@@ -24,5 +24,6 @@ module.exports = {
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/no-unused-vars': 2,
     'no-console': ['error', { allow: ['warn', 'error'] }],
+    'prettier/prettier': ['error', { endOfLine: 'auto' }],
   },
 };
