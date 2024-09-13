@@ -56,23 +56,6 @@ paths.defaultDelete = {
   public: true,
 };
 
-paths.test = {
-  path: '/test',
-  tag: 'Test',
-};
-
-paths.testSuccess = {
-  path: `${paths.test.path}/success`,
-  method: RequestMethod.GET,
-  public: false,
-};
-
-paths.testError = {
-  path: `${paths.test.path}/error`,
-  method: RequestMethod.GET,
-  public: false,
-};
-
 paths.accounts = {
   path: '/accounts',
   tag: 'Accounts',
@@ -122,7 +105,7 @@ paths.authLogin = {
 paths.authSignup = {
   path: `${paths.auth.path}/signup`,
   method: RequestMethod.POST,
-  public: false,
+  public: true,
 };
 
 paths.adoptions = {

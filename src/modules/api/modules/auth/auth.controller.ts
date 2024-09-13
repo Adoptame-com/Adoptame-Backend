@@ -1,4 +1,4 @@
-import { Body, Controller, HttpStatus } from '@nestjs/common';
+import { Body, Controller, HttpStatus, Post } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { statics } from '@src/statics/statics';
 import { ApiTags } from '@nestjs/swagger';
@@ -46,6 +46,34 @@ export class AuthController {
     };
   }
 
+  @Post('/auth/login')
+  @EndpointConfig(statics.paths.authLogin, [
+    {
+      status: HttpStatus.OK,
+      type: TokenResponseDto,
+    },
+    {
+      status: HttpStatus.BAD_REQUEST,
+      type: ErrorResponseDto,
+    },
+  ])
+  async signin(
+    @Body() account: AccountEmailAndPasswordDto,
+  ): Promise<TokenResponseDto> {
+    const token = await this.authService.validateUserByEmail(
+      account.email,
+      account.password,
+    );
+    return {
+      status: HttpStatus.OK,
+      code: statics.codes.logginSuccess.code,
+      message: statics.codes.logginSuccess.message,
+      detail: statics.messages.default.loginSuccess,
+      body: token,
+    };
+  }
+
+  @Post('/auth/singup')
   @EndpointConfig(statics.paths.authSignup, [
     {
       status: HttpStatus.CREATED,
