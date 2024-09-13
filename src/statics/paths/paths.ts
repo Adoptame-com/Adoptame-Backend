@@ -125,4 +125,16 @@ paths.authSignup = {
   public: false,
 };
 
+paths.adoptions = {
+  path: '/adoptions',
+  tag: 'Adoptions',
+};
+
+paths.adoptionsGet = {
+  path: `${paths.adoptions.path}`,
+  method: RequestMethod.GET,
+  public: true,
+};
+
 export { paths };
+
