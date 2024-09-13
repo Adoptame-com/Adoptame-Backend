@@ -137,4 +137,3 @@ paths.adoptionsGet = {
 };
 
 export { paths };
-
