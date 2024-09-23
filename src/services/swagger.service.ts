@@ -13,6 +13,8 @@ export class SwaggerService {
       .addBearerAuth()
       .build();
     const document = SwaggerModule.createDocument(this.app, documentConfig);
-    SwaggerModule.setup(statics.paths.docs.path, this.app, document);
+    SwaggerModule.setup(statics.paths.docs.path, this.app, document, {
+      customSiteTitle: statics.docs.title,
+    });
   }
 }

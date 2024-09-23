@@ -1,11 +1,12 @@
 import { OmitType, PartialType, PickType } from '@nestjs/swagger';
+import { replacePlaceholders } from '@src/common/functions/replace-placeholders';
+import { statics } from '@src/statics/statics';
 import {
   IsMongoId,
   IsString,
   IsEmail,
   IsNotEmpty,
   MinLength,
-  MaxLength,
   Matches,
 } from 'class-validator';
 
@@ -24,47 +25,33 @@ export class AccountIdDto {
   @IsNotEmpty()
   readonly name: string;
 
-  @IsEmail({}, { message: 'Email must be valid.' })
-  @IsNotEmpty()
-  readonly email: string;
-
-  @IsString()
-  @MinLength(8, { message: 'Password must be at least 8 characters long.' })
-  @MaxLength(20, { message: 'Password cannot be longer than 20 characters.' })
-  @IsNotEmpty()
-  @Matches(/(?=.*[A-Z])/, {
-    message: 'Password must contain at least one uppercase letter.',
-  })
-  @Matches(/(?=.*\d)/, {
-    message: 'Password must contain at least one number.',
-  })
-  @Matches(/(?=.*[!@#$%^&*(),.?":{}|<>])/, {
-    message: 'Password must contain at least one special character.',
-  })
-  readonly password: string;
-}
-
-export class AccountDto extends OmitType(AccountIdDto, [AccountNames.id]) {
-  @IsEmail({}, { message: 'Email must be valid.' })
-  @IsString()
+  @IsEmail({}, { message: statics.messages.accounts.invalidEmail })
   @IsNotEmpty()
   readonly email: string;
 
   @IsString()
   @IsNotEmpty()
-  @MinLength(8)
-  @MaxLength(12)
+  @MinLength(8, {
+    message: replacePlaceholders(statics.messages.accounts.shortPassword, [
+      '8',
+    ]),
+  })
   @Matches(/(?=.*[A-Z])/, {
-    message: 'Password must contain at least one uppercase letter.',
+    message: statics.messages.accounts.noUppercase,
+  })
+  @Matches(/(?=.*[a-z])/, {
+    message: statics.messages.accounts.noLowercase,
   })
   @Matches(/(?=.*\d)/, {
-    message: 'Password must contain at least one number.',
+    message: statics.messages.accounts.noNumber,
   })
   @Matches(/(?=.*[!@#$%^&*(),.?":{}|<>])/, {
-    message: 'Password must contain at least one special character.',
+    message: statics.messages.accounts.noSpecialChar,
   })
   readonly password: string;
 }
+
+export class AccountDto extends OmitType(AccountIdDto, [AccountNames.id]) {}
 
 export class PartialAccountIdDto extends PartialType(AccountIdDto) {}
 export class PartialAccountDto extends PartialType(AccountDto) {}

@@ -42,7 +42,7 @@ export default async function setSampleData(app: INestApplicationContext) {
         name: `usuario_${i}`,
         email: `usuario_${i}@ejemplo.com`,
         password: bcrypt.hashSync(
-          'contraseña123',
+          'ABC#abc#123',
           statics.constants.bcrypt.saltRounds,
         ),
       }),
