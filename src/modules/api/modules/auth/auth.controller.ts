@@ -1,4 +1,4 @@
-import { Body, Controller, HttpStatus } from '@nestjs/common';
+import { Body, Controller, HttpCode, HttpStatus } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { statics } from '@src/statics/statics';
 import { ApiTags } from '@nestjs/swagger';
@@ -72,6 +72,7 @@ export class AuthController {
     };
   }
 
+  @HttpCode(HttpStatus.CREATED)
   @EndpointConfig(statics.paths.authSignup, [
     {
       status: HttpStatus.CREATED,

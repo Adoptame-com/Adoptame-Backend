@@ -1,11 +1,13 @@
 import { applyDecorators, HttpStatus, RequestMapping } from '@nestjs/common';
 import {
   ApiBearerAuth,
+  ApiOperation,
   ApiResponse,
   ApiResponseOptions,
 } from '@nestjs/swagger';
 import { ErrorResponseDto } from '@src/dtos/error-response.dto';
 import { Path } from '@src/statics/paths/paths';
+import { statics } from '@src/statics/statics';
 
 export function EndpointConfig(path: Path, apiResponses: ApiResponseOptions[]) {
   const buildApiResponses = [
@@ -29,6 +31,14 @@ export function EndpointConfig(path: Path, apiResponses: ApiResponseOptions[]) {
       method: path.method,
     }),
     ...(!path.public ? [ApiBearerAuth()] : []),
-    ...buildApiResponses.map((apiResponse) => ApiResponse(apiResponse)),
+    ...buildApiResponses.map((apiResponse) => {
+      return ApiResponse({
+        ...apiResponse,
+        description: statics.docs.statusCodes[apiResponse.status] || '',
+      });
+    }),
+    ApiOperation({
+      summary: path.summary,
+    }),
   );
 }
