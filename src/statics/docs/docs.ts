@@ -1,9 +1,9 @@
 import { HttpStatus } from '@nestjs/common';
 
 export const docs = {
-  title: 'Nest General Architecture',
+  title: 'Adoptame',
   description:
-    'General architecture for Nest.js with TypeScript implementing 3 Layered Architecture. Node.js.',
+    'A simple and user-friendly app that connects people with animals in need of adoption, helping you find and adopt your perfect pet.',
   version: '1.0',
   messages: {
     allowedRoles: '**Allowed Roles**: <<0>>.',
